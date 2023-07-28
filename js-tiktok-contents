@@ -1,0 +1,10 @@
+function(){
+  return {{dlv até a matriz de dados}}.map(function(product){
+    return {
+      content_id: product.id,
+      content_name: product.name,
+      quantity: product.quantity,
+      price: product.price,
+    }
+    })
+}
