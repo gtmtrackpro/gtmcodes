@@ -1,0 +1,8 @@
+function() {
+total_produtos = 0;
+data = {{dlv até a matriz de dados}};
+$.each(data, function(index) {
+total_produtos += parseFloat(data[index].quantity);
+});
+return total_produtos;
+}
