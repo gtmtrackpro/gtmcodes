@@ -1,0 +1,4 @@
+function() {
+  var products = {{[DLV] ecommerce.purchase.products}};
+  return products.reduce(function(arr, prod) { return arr.concat(prod.id); }, []).join();
+}
