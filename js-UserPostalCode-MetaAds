@@ -1,0 +1,8 @@
+function formatarCodigoPostal() {
+  var postalcode = document.querySelector('input[name="cep"]').value;
+
+  // Remove caracteres não numéricos
+  var codigoLimpo = postalcode.replace(/\D/g, '');
+
+  return codigoLimpo;
+}
