@@ -1,0 +1,28 @@
+function formatPhoneNumber() {
+  var phoneField = document.querySelector('input[name="telefone2"]');
+  var phoneNumber = phoneField.value;
+ 
+  // Verificar se o campo de telefone está vazio ou nulo
+  if (!phoneNumber) {
+    return ''; // Retorna uma string vazia
+  }
+ 
+  // Remover espaços, hífens, parênteses, acentos e caracteres especiais
+  phoneNumber = phoneNumber.replace(/\s/g, '').replace(/-/g, '').replace(/\(|\)/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+ 
+  // Verificar se o número começa com "0" e remover
+  if (phoneNumber.startsWith('0')) {
+    phoneNumber = phoneNumber.substring(1);
+  }
+ 
+  // Verificar se o número começa com "55" (com ou sem o "+")
+  if (phoneNumber.startsWith('55') || phoneNumber.startsWith('+55')) {
+    // Remover "0" após o "55"
+    phoneNumber = phoneNumber.replace(/^55(0\d+)/, '55$1');
+  } else {
+    // Adicionar "55" no início
+    phoneNumber = '55' + phoneNumber;
+  }
+ 
+  return phoneNumber;
+}
