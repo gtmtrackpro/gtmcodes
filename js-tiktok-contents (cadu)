@@ -1,0 +1,11 @@
+function() {
+  var products = {{dlv - ecommerce.checkout.products}};
+  var indice=0
+  var contents =[{"content_id":products[indice].id,
+                 "content_type":"product",
+                 "price":products[indice].price,
+				 "content_name":products[indice].name,
+                 "quantity":products[indice].quantity
+                }];
+  return contents;
+}
