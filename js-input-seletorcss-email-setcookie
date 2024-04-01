@@ -1,0 +1,17 @@
+function formatEmailSetCookie() {
+  // Substitua pela variável do seu formulário
+  var emailInput = document.querySelector('#app > div.main.-checkout > div > div.container.wrapper-content > div > div:nth-child(1) > div.checkout-information > div > div > div.step-complete-text > div.information-email'); 
+
+  // Converte para letras minúsculas
+  if (emailInput) {
+    var emailValue = emailInput.innerText.toLowerCase(); // Use innerText para capturar o texto dentro do elemento
+
+    // Define o valor em um cookie com validade de 30 dias a partir da data atual
+    var expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + 30); // 30 dias a partir de agora
+    document.cookie = "UserEmailClient=" + emailValue + "; expires=" + expirationDate.toUTCString() + "; path=/"; 
+
+    return emailValue;
+  }
+  return undefined;
+}
