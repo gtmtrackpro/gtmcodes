@@ -1,9 +1,24 @@
 function() {
-  var productsId = {{variável de camada de dados}};
-  return ecommerceProductData = productsId.map(function(id) {
-    return{
-      id: id,  // ID is required.
-      google_business_vertical: 'retail',    
+  // Substitua 'productIdArrayVariable' pelo nome da variável do Data Layer que contém a lista de IDs de produto
+  var productIds = {{productIdArrayVariable}};
+  
+  // Verifica se a lista de IDs de produto está disponível e não está vazia
+  if (!productIds || !productIds.length) {
+    return null;
+  }
+
+  // Cria um array para armazenar os objetos de dados do produto
+  var ecommerceProductData = [];
+
+  // Itera sobre a lista de IDs de produto e cria um objeto de dados para cada ID
+  productIds.forEach(function(productId) {
+    if (productId) {
+      ecommerceProductData.push({
+        id: productId,
+        google_business_vertical: 'retail'
+      });
     }
   });
+
+  return ecommerceProductData;
 }
