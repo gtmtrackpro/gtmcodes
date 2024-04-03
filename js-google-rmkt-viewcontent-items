@@ -1,11 +1,14 @@
 function() {
-  var ecommerceProductData = [
-    {
-      'id': '{{[variável de camada de dados }}',  // ID is required.
-      'google_business_vertical': 'retail',	
-      // Rest of the product data should follow the data layer syntax.
-    },
-    // Multiple products may be included.
-  ];
-  return ecommerceProductData;
+  // Substitua 'productIdVariable' pelo nome da variável do Data Layer que contém o ID do produto
+  var productId = {{productIdVariable}};
+  
+  // Verifica se o ID do produto está disponível
+  if (!productId) {
+    return null;
+  }
+
+  return {
+    id: productId,
+    google_business_vertical: 'retail'
+  };
 }
